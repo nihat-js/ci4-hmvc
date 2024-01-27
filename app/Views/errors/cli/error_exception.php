@@ -29,9 +29,9 @@ if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE) {
     }
 
     foreach ($backtraces as $i => $error) {
-        $padFile  = '    '; // 4 spaces
+        $padFile = '    '; // 4 spaces
         $padClass = '       '; // 7 spaces
-        $c        = str_pad($i + 1, 3, ' ', STR_PAD_LEFT);
+        $c = str_pad($i + 1, 3, ' ', STR_PAD_LEFT);
 
         if (isset($error['file'])) {
             $filepath = clean_path($error['file']) . ':' . $error['line'];
@@ -46,7 +46,7 @@ if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE) {
         if (isset($error['class'])) {
             $type = ($error['type'] === '->') ? '()' . $error['type'] : $error['type'];
             $function .= $padClass . $error['class'] . $type . $error['function'];
-        } elseif (! isset($error['class']) && isset($error['function'])) {
+        } elseif (!isset($error['class']) && isset($error['function'])) {
             $function .= $padClass . $error['function'];
         }
 

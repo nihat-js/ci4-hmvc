@@ -25,9 +25,24 @@ class Routing extends BaseRouting
      *
      * Default: APPPATH . 'Config/Routes.php'
      */
+
+
+
+
     public array $routeFiles = [
-        APPPATH . 'Config/Routes.php',
+       APPPATH . 'Config/Routes.php',
     ];
+
+    // load all modules routes from "routes" folder automatically
+    public function __construct()
+    {
+        $files = scandir(  APPPATH.DIRECTORY_SEPARATOR."..\\routes\\");
+        foreach ($files as $file){
+            if ($file === "." || $file === "..") continue;
+            $this->routeFiles [] = APPPATH.DIRECTORY_SEPARATOR."..\\routes\\".$file;
+        }
+//        var_export($this->routeFiles);
+    }
 
     /**
      * The default namespace to use for Controllers when no other

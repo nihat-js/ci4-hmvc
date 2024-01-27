@@ -13,9 +13,13 @@ class BonusController extends BaseController
     {
 
         $userModel = new UserModel();
-        $user = $userModel->findAll();
-        $users  = $userModel->select("*")->findAll();
-        return view("bonus",["users" => $users]);
+//        $user = $userModel->findAll();
+//        $users  = $userModel->select("*")->findAll();
+        $users = $userModel->all();
+//        var_dump($users);
+//        return ;
+        return view("bonus", ["users" => $users]);
+
     }
 
 }

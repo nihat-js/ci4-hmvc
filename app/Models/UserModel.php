@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Config\Database;
 
 class UserModel extends Model
 {
@@ -37,4 +38,11 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function all(){
+        $db = Database::connect();
+        $result = $db->query("SELECT * FROM users")->getResultArray();
+        return $result;
+    }
 }
