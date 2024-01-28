@@ -27,9 +27,9 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'roo',
+        'username'     => 'root',
         'password'     => '',
-        'database'     => '',
+        'database'     => 'ci4-hmvc',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
